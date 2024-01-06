@@ -1,0 +1,23 @@
+{% extends 'logs/base.html' %} {% block page_header%}
+<h1>{{topic.text}}</h1>
+{% endblock page_header %} {% block content%}
+
+<p><a href="{% url 'logs:new_entry' topic.id %}">Add a new entry</a></p>
+
+{% for i in entries %}
+<div class="card mb-3">
+	<!-- Card header with timestamp and edit link -->
+  <small>
+	<p class="card-header" style="text-align: right;">
+		{{i.date_added|date:'M d, Y H:i'}}
+			<a href="{% url 'logs:edit_entry' i.id %}">edit</a>
+		</small>
+	</p>
+	<!-- Card body with entry text -->
+	<div class="card-body">
+		<p>{{ i.text|linebreaks}}</p>
+	</div>
+</div>
+{% empty %}
+<p>There are no entries for this topic yet</p>
+{% endfor %} {% endblock content%}

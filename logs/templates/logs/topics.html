@@ -1,0 +1,17 @@
+{% extends 'logs/base.html' %}{% load django_bootstrap5 %} {% block page_header%}
+<h1>Topics</h1>
+{% endblock page_header %} {% block content %}
+
+<ul class="list-group border-bottom pb-2 mb-4">
+	{% for i in topics %}
+	<li class="list-group-item border-0">
+		<a class="nav-link" href="{% url 'logs:topic' i.id %}">{{i.text}}</a>
+	</li>
+	{% empty %}
+	<li class="list-group-item border-0">No topic have been added yet</li>
+	{% endfor %}
+</ul>
+
+<a class="nav-link btn btn-outline-secondary btn-sm" href="{% url 'logs:new_topic' %}" style="max-width: 150px; padding: 10px; background-color: #0d6efd; color: white">Add a new Topic</a>
+
+{% endblock content %}

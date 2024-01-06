@@ -1,0 +1,7 @@
+{% extends 'logs/base.html' %}{% load django_bootstrap5 %} {% block content %}
+<div class="card-header card mb-3">
+	<p>Add a new entry for : <a href="{% url 'logs:topic' topic.id %}">{{topic}}</a></p>
+</div>
+
+<form action="{% url 'logs:new_entry' topic.id %}" method="post">{% csrf_token %} {% bootstrap_form form %} {% bootstrap_button button_type="submit" content='Add Entry' %}</form>
+{% endblock content %}

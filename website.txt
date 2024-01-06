@@ -1,0 +1,2 @@
+website: private-logs-b006cdbe3dd9.herokuapp.com
+git-repository: https://git.heroku.com/private-logs.git
