@@ -1,1 +1,1 @@
-"web: gunicorn log_entries.wsgi"
+web: gunicorn log_entries.wsgi
