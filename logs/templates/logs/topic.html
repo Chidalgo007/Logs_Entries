@@ -7,12 +7,13 @@
 {% for i in entries %}
 <div class="card mb-3">
 	<!-- Card header with timestamp and edit link -->
-  <small>
-	<p class="card-header" style="text-align: right;">
-		{{i.date_added|date:'M d, Y H:i'}}
+	<small class="card-header">
+		<p style="display: inline">@{{i.owner}}</p>
+		<p style="float: right; display: inline">
+			{{i.date_added|date:'M d, Y H:i'}}
 			<a href="{% url 'logs:edit_entry' i.id %}">edit</a>
-		</small>
-	</p>
+		</p>
+	</small>
 	<!-- Card body with entry text -->
 	<div class="card-body">
 		<p>{{ i.text|linebreaks}}</p>
